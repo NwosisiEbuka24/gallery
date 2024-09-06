@@ -4,15 +4,19 @@ from .forms import UpdateForm
 from django.db.models import Q
 
 from django.contrib.auth.decorators import login_required
-@login_required(login_url='login/')
+@login_required(login_url='login')
 def homepage(request):
     product = Product.objects.all()
     return render(request, 'gallery/home.html', {'product':product})
-@login_required(login_url='login/')
+
+
+@login_required(login_url='login')
 def ViewPage(request, id):
     product = get_object_or_404(Product, id=id)
     return render(request, 'gallery/view.html', {'product':product})
-@login_required(login_url='login/')
+
+
+@login_required(login_url='login')
 def UpdateView(request, id):
     product = get_object_or_404(Product, id=id)
     form =  UpdateForm()
@@ -26,6 +30,8 @@ def UpdateView(request, id):
     else:
         form = UpdateForm(instance=product)
     return render(request, 'gallery/edit.html', {'form':form, 'product':product})
+
+
 def SearchQuery(request):
     query = request.GET.get('q')
     if query:
