@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class='header'>
+        <div class='left-section'>
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+        <div class='right-section'>
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method='post'>
+                    {% csrf_token %}
+                    <button class='logout' aria-label="Logout">Logout</button>
+                </form>
+            {% else %}
+                <form action="{% url 'login' %}" method='post'>
+                    {% csrf_token %}
+                    <button class='login' aria-label="Login">Login</button>
+                </form>
+                <form action="{% url 'register' %}" method='post'>
+                    {% csrf_token %}
+                    <button class='register' aria-label="Register">Register</button>
+                </form>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main>
+        <div class="search_form" style="padding: 20px; background-color: #f4f4f4;">
+            <form class="search" method="GET" action="{% url 'search' %}" style="display: flex; align-items: center; background-color: #fff; padding: 10px 20px; border-radius: 25px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <label style="display: flex; align-items: center;">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" style="fill: #333; margin-right: 10px;">
+                        <path
+                          d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 
+                          0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 
+                          12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 
+                          1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 
+                          10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"></path>
+                    </svg>
+                    <input name="q" placeholder="Search" style="padding: 10px 20px; font-size: 16px; border: none; outline: none; border-radius: 20px; width: 250px;">
+                </label>
+            </form>
+        </div>
+        
+        {% block content %}
+        <div class="product-container">
+            {% for product in product %}
+            <div class="product-item">
+                <h2>{{product.name}}   </h2>
+                <img src="{{product.image.url}}" alt="  ">
+                <form action="{% url 'view' product.id %}" method="get" style="display:inline;">
+                    <button type="submit" style="padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                        View
+                    </button>
+                </form>
+            
+                <!-- Edit Button -->
+                <form action="{% url 'edit' product.id %}" method="get" style="display:inline;">
+                    <button type="submit" style="padding: 10px 15px; background-color: #f57c00; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                        Edit
+                    </button>
+                </form>
+                <p></p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+    
+</body>
+</html>

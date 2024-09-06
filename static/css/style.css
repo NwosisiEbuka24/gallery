@@ -1,0 +1,263 @@
+/* General Body Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    padding-top: 70px; /* Adds space between the fixed header and the main content */
+}
+
+/* Header and Navigation Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.right-section {
+    display: flex;
+    gap: 10px;
+}
+
+.right-section form {
+    margin: 0;
+}
+
+.right-section button {
+    background-color: #f57c00;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.right-section button:hover {
+    background-color: #e64a19;
+}
+
+/* Main Content Styles */
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .right-section {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .right-section button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+.logout,
+.login,
+.register {
+    margin-right: 7px;
+    padding: 12px;
+    border-radius: 25px;
+    border-style: none;
+    background-color: red;
+    cursor: pointer;
+}
+
+.login:hover,
+.logout:hover,
+.register:hover {
+    background-color: rgb(238, 183, 183);
+    transition: 0.15s;
+}
+
+
+
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.product-item img {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #666;
+}
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px); /* Assuming header is 60px high */
+    padding: 20px;
+    background-color: #f0f8ff; /* Light background color */
+}
+
+/* Form Styles */
+.login-form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Restrict the max width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-form p {
+    width: 100%;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1em;
+}
+
+/* Input Styles */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* Subtle glow effect */
+}
+
+/* Button Styles */
+.submit-btn {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #4caf50; /* Green background */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 1.3em;
+    }
+
+    .submit-btn {
+        font-size: 0.9em;
+    }
+}
+
+/* Button Styles */
+.product-item button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-item button a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-item button:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.product-item button:active {
+    background-color: #d0d0d0;
+}

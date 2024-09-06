@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "gallery/home.html" %}
+{% load static %}
+{% block content %}
+<div class='container'>
+    <form class='login-form' action="" method='post'>
+        <p class="form-title">Register</p>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="submit-btn">Register</button>
+    </form>
+</div>
+{% endblock %}
