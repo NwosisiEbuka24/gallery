@@ -1,19 +1,74 @@
-# Python
+# Python specific files
 *.pyc
+*.pyo
+*.pyd
 __pycache__/
-
-# Environment
+*.env
 .env
+*.pylintrc
+*.pylint.d
 
-# Django specific
-db.sqlite3
-media/
-
-# Virtual environment
+# Virtual environments
 venv/
 env/
-.venv/
+ENV/
+venv.bak/
+venv.bak/
 
-# IDE specific
+# Django specific
+*.log
+*.pot
+*.py[cod]
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+local_settings.py
+
+# VSCode settings
 .vscode/
+
+# MacOS specific
+.DS_Store
+
+# PyCharm settings
 .idea/
+
+# JetBrains IDE
+*.idea/
+
+# Thumbnails
+*.thumbs.db
+
+# Distribution / Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# C extensions
+*.so
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Docker related
+docker-compose*.yml
+Dockerfile
