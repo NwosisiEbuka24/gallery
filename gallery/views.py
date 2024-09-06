@@ -26,6 +26,7 @@ def UpdateView(request, id):
     else:
         form = UpdateForm(instance=product)
     return render(request, 'gallery/edit.html', {'form':form, 'product':product})
+@login_required(login_url='login/')
 def SearchQuery(request):
     query = request.GET.get('q')
     if query:
